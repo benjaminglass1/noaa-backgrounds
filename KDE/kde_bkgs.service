@@ -1,0 +1,12 @@
+[Unit]
+Description=Changes desktop background to NOAA-East imagery
+Wants=network-online.target
+Wants=kde_bkgs.timer
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/benjamin/downloads/git/noaa-backgrounds/KDE-background.sh
+
+[Install]
+WantedBy=multi-user.target
