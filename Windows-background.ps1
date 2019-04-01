@@ -1,4 +1,6 @@
-﻿$imageURL = (Invoke-WebRequest -DisableKeepAlive -UseBasicParsing -Uri "https://www.star.nesdis.noaa.gov/GOES/index.php").Links.Href -Match ".jpg"
+﻿# Valid sizes are 339, 678, 1808, and 5424 (length of image side in pixels)
+$imageSize = 1808
+$imageURL = ("https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/$imageSize" + $imageSize + "x" + $imageSize)
 Invoke-WebRequest -UseBasicParsing -DisableKeepAlive -Uri "$imageURL" -OutFile "$env:USERPROFILE\Pictures\noaa.jpg"
 
 $SetWallpaperSource = @"
